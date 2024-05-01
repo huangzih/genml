@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en – English">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Usage &mdash; GenML-test 0.4.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tutorial" href="../Tutorial/contents.html" />
+    <link rel="prev" title="Installation" href="../Installation/contents.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            GenML-test
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../Introduction/contents.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Installation/contents.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#generating-mittag-leffler-correlated-noise">Generating Mittag-Leffler Correlated Noise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#calculating-autocorrelation-function">Calculating Autocorrelation Function</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Tutorial/contents.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Application/contents.html">Application</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GenML-test</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Usage</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Usage/contents.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Permalink to this heading"></a></h1>
+<p>This section introduces the basic usage of GenML. GenML provides several interfaces for efficiently generating M-L noise sequences in batches and computing actual and theoretical autocorrelation functions. The following are detailed explanations:</p>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">N</span></code> [type <code class="docutils literal notranslate"><span class="pre">int</span></code>]: Number of noise sequences to generate.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">T</span></code> [type <code class="docutils literal notranslate"><span class="pre">int</span></code>]: Length of the noise sequences to generate.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">C</span></code> [type <code class="docutils literal notranslate"><span class="pre">float</span></code>]: Amplitude coefficient.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lamda</span></code> [type <code class="docutils literal notranslate"><span class="pre">float</span></code>]: Mittag-Leffler exponent, range (0, 2).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tau</span></code> [type <code class="docutils literal notranslate"><span class="pre">int</span></code>]: Characteristic memory time, range (0, 10000).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">seed</span></code> [default=<code class="docutils literal notranslate"><span class="pre">None</span></code>]: Random seed for generating noise.</p>
+<ul>
+<li><p>Set to <code class="docutils literal notranslate"><span class="pre">None</span></code> for different noise sequences each time; set to a specific value for identical noise sequences each time.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">xi</span></code> [type <code class="docutils literal notranslate"><span class="pre">ndarray</span></code>]: Generated noise sequences, shape (N, T).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tmax</span></code> [type <code class="docutils literal notranslate"><span class="pre">int</span></code>]: Maximum value for computing autocorrelation functions, range (0, T).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dt</span></code> [type <code class="docutils literal notranslate"><span class="pre">int</span></code>]: Interval for computing autocorrelation functions, range (0, tmax).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nc</span></code> [default=1]: Number of cores to use for parallel computation of autocorrelation functions.</p></li>
+</ul>
+<hr class="docutils" />
+<blockquote>
+<div><p><strong>Note</strong>: When <code class="docutils literal notranslate"><span class="pre">lamda</span></code> approaches 2 and <code class="docutils literal notranslate"><span class="pre">tau</span></code> is large, generating noise sequences may take a long time and consume a significant amount of memory. It is recommended to use caution in such cases.</p>
+</div></blockquote>
+</section>
+<section id="generating-mittag-leffler-correlated-noise">
+<h2>Generating Mittag-Leffler Correlated Noise<a class="headerlink" href="#generating-mittag-leffler-correlated-noise" title="Permalink to this heading"></a></h2>
+<p>To generate M-L noise, use the <code class="docutils literal notranslate"><span class="pre">mln</span></code> interface with the following method: <code class="docutils literal notranslate"><span class="pre">genml.mln(N,</span> <span class="pre">T,</span> <span class="pre">C,</span> <span class="pre">lamda,</span> <span class="pre">tau,</span> <span class="pre">seed)</span></code>.<br><br>
+Example usage:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">genml</span>
+
+<span class="c1"># Parameters</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># Number of sequences</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">500</span>  <span class="c1"># Length of each sequence</span>
+<span class="n">C</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1"># Amplitude coefficient</span>
+<span class="n">lamda</span> <span class="o">=</span> <span class="mf">0.5</span>  <span class="c1"># Mittag-Leffler exponent</span>
+<span class="n">tau</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># Characteristic memory time</span>
+<span class="n">seed</span> <span class="o">=</span> <span class="mi">42</span> <span class="c1"># Random seed</span>
+
+<span class="c1"># Generate M-L noise sequences</span>
+<span class="n">xi</span> <span class="o">=</span> <span class="n">genml</span><span class="o">.</span><span class="n">mln</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">lamda</span><span class="p">,</span> <span class="n">tau</span><span class="p">,</span> <span class="n">seed</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="calculating-autocorrelation-function">
+<h2>Calculating Autocorrelation Function<a class="headerlink" href="#calculating-autocorrelation-function" title="Permalink to this heading"></a></h2>
+<p>To calculate the autocorrelation function (ACF) values of the generated noise sequences, you can use the <code class="docutils literal notranslate"><span class="pre">acf</span></code> function for actual ACF values and the <code class="docutils literal notranslate"><span class="pre">acft</span></code> function for theoretical ACF values. Usage: <code class="docutils literal notranslate"><span class="pre">genml.acf(xi,</span> <span class="pre">tmax,</span> <span class="pre">dt,</span> <span class="pre">nc)</span></code> and <code class="docutils literal notranslate"><span class="pre">genml.acft(tmax,</span> <span class="pre">dt,</span> <span class="pre">C,</span> <span class="pre">lamda,</span> <span class="pre">tau)</span></code>.<br><br>
+Example usage:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">tmax</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Max lag for ACF calculation</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># Step size between lags</span>
+<span class="n">nc</span> <span class="o">=</span> <span class="mi">4</span>  <span class="c1"># Number of CPU cores for parallel processing</span>
+
+<span class="c1"># Calculate actual ACF values</span>
+<span class="n">acfv</span> <span class="o">=</span> <span class="n">genml</span><span class="o">.</span><span class="n">acf</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">tmax</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">nc</span><span class="p">)</span>
+
+<span class="c1"># Calculate theoretical ACF values</span>
+<span class="n">acftv</span> <span class="o">=</span> <span class="n">genml</span><span class="o">.</span><span class="n">acft</span><span class="p">(</span><span class="n">tmax</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">C</span><span class="p">,</span> <span class="n">lamda</span><span class="p">,</span> <span class="n">tau</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../Installation/contents.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../Tutorial/contents.html" class="btn btn-neutral float-right" title="Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, QuXiang2333.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

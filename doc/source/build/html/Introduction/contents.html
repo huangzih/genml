@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en – English">
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction &mdash; GenML-test 0.4.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Installation" href="../Installation/contents.html" />
+    <link rel="prev" title="Welcome to GenML-test&#39;s documentation!" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            GenML-test
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Installation/contents.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Usage/contents.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Tutorial/contents.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Application/contents.html">Application</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GenML-test</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/Introduction/contents.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading"></a></h1>
+<p>As a ubiquitous stochastic process in complex systems, noise is integral to the evolution of such systems. The intrinsic physical properties of noise are essential for understanding the mechanisms underlying system behaviors. The basic theoretical description of noise in various studies is the white noise, which exhibits a time-independent feature and a uniform power spectrum. However, unexpected behavior patterns in complex systems are often induced by non-white noise with temporal correlations. Numerous studies have supported this perspective, among which are representative examples: in ultracold and collisionless atomic gases, non-white noise modulates the light scattering growth rate based on its correlation time; in the survival dynamics of biological populations, non-white environmental noise affects the dependency of population extinction times; and in thermophoretic effects, non-white noise directs the motion of Brownian particles in fluids along the temperature gradient. These findings highlight the pivotal role of non-white noise in revealing the internal workings of complex systems, and emphasize the necessity of considering noise effects when elucidating the evolution dynamics.</p>
+<p>In particular, <strong>Mittag-Leffler correlated noise</strong> (referred to as <strong>M-L noise</strong>) is distinguished for its capability to emulate a broad spectrum of correlation behaviors through parameter adjustments, including typical exponential and power-law correlations. This flexibility makes M-L noise a versatile tool for modeling a wide range of phenomena in complex systems. For example,  Laas et al. utilize M-L noise to offer a theoretical exploration of the resonance behaviors observed in Brownian particles within oscillatory viscoelastic shear flows. Cairano et al. underscore M-L noise's role in unraveling the crossover from subdiffusive to Brownian motion and the relaxation dynamics within membrane proteins. Umamaheswari et al. demonstrate the application of M-L noise in financial mathematics by leveraging it to explain the existence and stability of solutions in nonlinear stochastic fractional dynamical systems. That is, the importance of M-L noise in dissecting complex system dynamics is significant, necessitating advancements in its generation for deeper insights.</p>
+<p>However, despite significant efforts by researchers to develop algorithms for simulating various types of non-white noise, direct algorithms and software for generating M-L noise remain notably absent. Such an absence significantly impedes its application in crucial simulation methods such as Langevin dynamics and molecular dynamics, as well as in data-driven approaches like machine learning. This limitation confines the utility of M-L noise primarily to theoretical modeling, thereby restricting in-depth exploration of its effects on complex systems. Consequently, there is a great demand for the development of tools capable of accurately simulating M-L noise, which could unlock new insights into the dynamic behaviors of complex systems across various scientific fields.</p>
+<p>To address this critical issue, we introduce <strong>GenML</strong>, a Python library designed to effectively generate M-L noise in this document. This software marks a significant advancement, enabling researchers to directly simulate M-L noise and apply it across a wide range of fields. GenML not only fills the existing gap in the available simulation tools for M-L noise but also paves the way for new research opportunities in understanding and modeling the dynamics of complex systems.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="Welcome to GenML-test&#39;s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../Installation/contents.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, QuXiang2333.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
