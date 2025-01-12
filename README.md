@@ -8,6 +8,8 @@ E-mail: huangzih@hnu.edu.cn
 
 GenML is a Python library designed for generating Mittag-Leffler correlated noise, which is crucial for modeling a wide range of phenomena in complex systems. This document provides a brief overview of how to install and use GenML to generate M-L noise and compute its autocorrelation functions.
 
+This work is supported by the National Natural Science Foundation of China (Grant No. 12104147) and the Fundamental Research Funds for the Central Universities.
+
 ##### Documentation website: [https://genml.readthedocs.io](https://genml.readthedocs.io)
 
 ## Installation
